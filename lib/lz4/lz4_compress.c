@@ -780,8 +780,10 @@ _last_literals:
 		} else {
 			*op++ = (BYTE)(lastRun << ML_BITS);
 		}
+
 		LZ4_memcpy(op, anchor, lastRun);
 		ip = anchor + lastRun;
+
 		op += lastRun;
 	}
 
