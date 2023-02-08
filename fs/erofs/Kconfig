@@ -4,6 +4,7 @@ config EROFS_FS
 	tristate "EROFS filesystem support"
 	depends on BLOCK
 	select LIBCRC32C
+	default y
 	help
 	  EROFS (Enhanced Read-Only File System) is a lightweight
 	  read-only file system with modern designs (eg. page-sized
@@ -21,6 +22,7 @@ config EROFS_FS
 config EROFS_FS_DEBUG
 	bool "EROFS debugging feature"
 	depends on EROFS_FS
+	default n
 	help
 	  Print debugging messages and enable more BUG_ONs which check
 	  filesystem consistency and find potential issues aggressively,
@@ -76,3 +78,22 @@ config EROFS_FS_ZIP
 
 	  If you don't want to enable compression feature, say N.
 
+config EROFS_FS_PCPU_KTHREAD
+	bool "EROFS per-cpu decompression kthread workers"
+	depends on EROFS_FS_ZIP
+	default y
+	help
+	  Saying Y here enables per-CPU kthread workers pool to carry out
+	  async decompression for low latencies on some architectures.
+
+	  If unsure, say N.
+
+config EROFS_FS_PCPU_KTHREAD_HIPRI
+	bool "EROFS high priority per-CPU kthread workers"
+	depends on EROFS_FS_ZIP && EROFS_FS_PCPU_KTHREAD
+	default y
+	help
+	  This permits EROFS to configure per-CPU kthread workers to run
+	  at higher priority.
+
+	  If unsure, say N.
