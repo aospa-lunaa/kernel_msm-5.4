@@ -1639,8 +1639,6 @@ u32 dsi_panel_get_aod_bl(struct dsi_display *display)
                            aod_bl_lut[i].aod_bl);
 }
 
-extern int dsi_panel_set_aod_mode(struct dsi_panel *panel, int level);
-
 extern void zram_set_screen_state(bool on);
 
 int dsi_display_set_power(struct drm_connector *connector,
