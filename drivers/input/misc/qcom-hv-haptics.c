@@ -32,7 +32,7 @@
 #ifdef RICHTAP_FOR_PMIC_ENABLE
 #include <linux/miscdevice.h>
 #include <linux/mman.h>
-#define RICHTAP_NAME "aw8697_haptic"
+#define RICHTAP_NAME "richtap_haptic"
 #undef dev_dbg
 #define dev_dbg dev_err
 #endif //RICHTAP_FOR_PMIC_ENABLE
