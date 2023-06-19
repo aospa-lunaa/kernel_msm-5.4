@@ -338,7 +338,6 @@
 			reg = <0xf000>, <0xf100>, <0xf200>;
 			interrupts = <0x3 0xf0 0x1 IRQ_TYPE_EDGE_RISING>;
 			interrupt-names = "fifo-empty";
-			qcom,Vrms_mv = <1270>;
 			qcom,vmax-mv = <1300>;
 			qcom,brake-mode = <BRAKE_CLOSE_LOOP>;
 			qcom,brake-pattern = /bits/ 8 <0xff 0x3f 0x1f>;
@@ -514,10 +513,10 @@
 &pm8350b_haptics {
 	status = "ok";
 //#ifdef OPLUS_FEATURE_CHG_BASIC
-	qcom,vmax-mv = <1280>;
+	qcom,Vrms_mv = <1270>;
+	qcom,vmax-mv = <5280>;
 	qcom,cl-vmax-mv = <1280>;
-	qcom,lra-period-us = <5882>;
-	qcom,fifo-vmax-mv = <9100>;
+	qcom,lra-period-us = <5880>;
 	qcom,old-steady-vmax-mv = <9100>;
 	qcom,cal-data-restore;
 //#endif
