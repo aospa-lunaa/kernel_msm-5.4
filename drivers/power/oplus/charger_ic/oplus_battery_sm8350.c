@@ -4523,7 +4523,7 @@ void oplus_get_usbtemp_volt(struct oplus_chg_chip *chip)
 	bcdev = chip->pmic_spmi.bcdev_chip;
 
 	if (IS_ERR_OR_NULL(bcdev->iio.usbtemp_v_chan)) {
-		printk(KERN_ERR "[OPLUS_CHG][%s]: bcdev->iio.usbtemp_v_chan  is  NULL !\n", __func__);
+		no_printk(KERN_ERR "[OPLUS_CHG][%s]: bcdev->iio.usbtemp_v_chan  is  NULL !\n", __func__);
 		chip->usbtemp_volt_l = usbtemp_volt_l_pre;
 		goto usbtemp_next;
 	}
@@ -4549,7 +4549,7 @@ void oplus_get_usbtemp_volt(struct oplus_chg_chip *chip)
 usbtemp_next:
 	usbtemp_volt = 0;
 	if (IS_ERR_OR_NULL(bcdev->iio.usbtemp_sup_v_chan)) {
-		printk(KERN_ERR "[OPLUS_CHG][%s]: chg->iio.usbtemp_sup_v_chan  is  NULL !\n", __func__);
+		no_printk(KERN_ERR "[OPLUS_CHG][%s]: chg->iio.usbtemp_sup_v_chan  is  NULL !\n", __func__);
 		chip->usbtemp_volt_r = usbtemp_volt_r_pre;
 		return;
 	}
