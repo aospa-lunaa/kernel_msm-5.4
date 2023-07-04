@@ -1450,7 +1450,8 @@ static int adc5_get_dt_data(struct adc5_chip *adc, struct device_node *node)
 		ret = adc5_get_dt_channel_data(adc, &prop, child, data);
 		if (ret) {
 			of_node_put(child);
-			return ret;
+			// Try the next one.
+			continue;
 		}
 
 		if (prop.scale_fn_type == -EINVAL)
