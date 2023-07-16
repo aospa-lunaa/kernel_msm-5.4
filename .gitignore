@@ -149,3 +149,8 @@ x509.genkey
 
 # vendor device tree directories
 arch/arm/boot/dts/vendor
+
+# Standalone build stuff
+build.sh
+compilation-tools/
+Gato*zip
