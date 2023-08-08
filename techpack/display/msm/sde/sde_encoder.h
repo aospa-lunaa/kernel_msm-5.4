@@ -670,7 +670,6 @@ static inline bool sde_encoder_is_widebus_enabled(struct drm_encoder *drm_enc)
 	return sde_enc->mode_info.wide_bus_en;
 }
 
-<<<<<<< HEAD
 #if defined(OPLUS_FEATURE_PXLW_IRIS5)
 /**
  * sde_encoder_rc_lock - lock the sde encoder resource control.
@@ -700,11 +699,4 @@ void sde_encoder_disable_autorefresh_handler(struct drm_encoder *drm_enc);
  */
 bool sde_encoder_is_disabled(struct drm_encoder *drm_enc);
 #endif
-
-/**
- * sde_encoder_trigger_early_wakeup - trigger early wake up
- * @drm_enc:    Pointer to drm encoder structure
- */
-void sde_encoder_trigger_early_wakeup(struct drm_encoder *drm_enc);
-
 #endif /* __SDE_ENCODER_H__ */
