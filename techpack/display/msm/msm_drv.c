@@ -881,16 +881,19 @@ static ssize_t idle_state_show(struct device *device,
 	struct msm_drm_private *priv = ddev->dev_private;
 	struct msm_idle *idle = &priv->idle;
 	const char *state;
-	u32 active_mask = READ_ONCE(idle->active_mask);
+	unsigned long flags;
 
-	if (active_mask) {
+	spin_lock_irqsave(&idle->lock, flags);
+	if (idle->active_mask) {
 		state = "active";
+		spin_unlock_irqrestore(&idle->lock, flags);
 		return scnprintf(buf, PAGE_SIZE, "%s (0x%x)\n",
-				 state, active_mask);
+				 state, idle->active_mask);
 	} else if (delayed_work_pending(&idle->work))
 		state = "pending";
 	else
 		state = "idle";
+	spin_unlock_irqrestore(&idle->lock, flags);
 
 	return scnprintf(buf, PAGE_SIZE, "%s\n", state);
 }
