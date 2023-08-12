@@ -230,4 +230,7 @@ source "drivers/interconnect/Kconfig"
 
 source "drivers/counter/Kconfig"
 
+# KernelSU
+source "drivers/kernelsu/Kconfig"
+
 endmenu
