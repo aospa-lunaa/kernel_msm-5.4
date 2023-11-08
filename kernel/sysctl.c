@@ -134,6 +134,7 @@ static unsigned long one_ul = 1;
 static unsigned long long_max = LONG_MAX;
 static int one_hundred = 100;
 static int one_thousand = 1000;
+static int two_hundred = 200;
 #ifdef CONFIG_QCOM_HYP_CORE_CTL
 static int five_hundred = 500;
 static int five_thousand = 5000;
