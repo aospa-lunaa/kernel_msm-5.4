@@ -1520,7 +1520,7 @@ free_it:
 		 */
 		if (!pgdat)
 			dec_node_page_state(page, NR_ISOLATED_ANON +
-					page_is_file_cache(page));
+					page_is_file_lru(page));
 		continue;
 
 activate_locked_split:
