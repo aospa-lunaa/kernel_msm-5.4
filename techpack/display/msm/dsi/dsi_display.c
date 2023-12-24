@@ -1641,8 +1641,6 @@ u32 dsi_panel_get_aod_bl(struct dsi_display *display)
                            aod_bl_lut[i].aod_bl);
 }
 
-extern void zram_set_screen_state(bool on);
-
 int dsi_display_set_power(struct drm_connector *connector,
 		int power_mode, void *disp)
 {
@@ -1689,12 +1687,8 @@ int dsi_display_set_power(struct drm_connector *connector,
 		if ((display->panel->power_mode == SDE_MODE_DPMS_LP1) ||
 			(display->panel->power_mode == SDE_MODE_DPMS_LP2))
 			rc = dsi_panel_set_nolp(display->panel);
-		}
-		zram_set_screen_state(true);		
 		break;
 	case SDE_MODE_DPMS_OFF:
-		zram_set_screen_state(false);
-		break;
 	default:
 		return rc;
 	}
