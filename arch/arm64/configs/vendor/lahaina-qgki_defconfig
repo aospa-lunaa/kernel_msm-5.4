@@ -1,18 +1,18 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Linux/arm64 5.4.254 Kernel Configuration
+# Linux/arm64 5.4.259 Kernel Configuration
 #
 
 #
-# Compiler: Android (10386919, +pgo, +bolt, +lto, -mlgo, based on r498229) clang version 17.0.3 (https://android.googlesource.com/toolchain/llvm-project e34ed7d63863b45858e74126edaa738e75887800)
+# Compiler: Android (11209041, +pgo, +bolt, +lto, +mlgo, based on r510928) clang version 18.0.0 (https://android.googlesource.com/toolchain/llvm-project 477610d4d0d988e69dbc3fae4fe86bff3f07f2b5)
 #
 CONFIG_OPLUS_SYSTEM_KERNEL_QCOM=y
 # CONFIG_OPLUS_SYSTEM_KERNEL_MTK is not set
-CONFIG_CC_VERSION_TEXT="Android (10386919, +pgo, +bolt, +lto, -mlgo, based on r498229) clang version 17.0.3 (https://android.googlesource.com/toolchain/llvm-project e34ed7d63863b45858e74126edaa738e75887800)"
+CONFIG_CC_VERSION_TEXT="Android (11209041, +pgo, +bolt, +lto, +mlgo, based on r510928) clang version 18.0.0 (https://android.googlesource.com/toolchain/llvm-project 477610d4d0d988e69dbc3fae4fe86bff3f07f2b5)"
 CONFIG_GCC_VERSION=0
 CONFIG_CC_IS_CLANG=y
 CONFIG_LD_IS_LLD=y
-CONFIG_CLANG_VERSION=170003
+CONFIG_CLANG_VERSION=180000
 CONFIG_CC_CAN_LINK=y
 CONFIG_CC_HAS_ASM_GOTO=y
 CONFIG_CC_HAS_ASM_GOTO_TIED_OUTPUT=y
@@ -170,6 +170,7 @@ CONFIG_UTS_NS=y
 # CONFIG_PID_NS is not set
 CONFIG_NET_NS=y
 # CONFIG_CHECKPOINT_RESTORE is not set
+CONFIG_SCHED_CASS=y
 # CONFIG_SCHED_AUTOGROUP is not set
 # CONFIG_SYSFS_DEPRECATED is not set
 CONFIG_RELAY=y
@@ -419,6 +420,7 @@ CONFIG_ARM64_TAGGED_ADDR_ABI=y
 CONFIG_COMPAT=y
 CONFIG_KUSER_HELPERS=y
 CONFIG_COMPAT_VDSO=y
+CONFIG_THUMB2_COMPAT_VDSO=y
 # CONFIG_ARMV8_DEPRECATED is not set
 
 #
@@ -1267,8 +1269,6 @@ CONFIG_NET_CLS_FW=y
 CONFIG_NET_CLS_U32=y
 # CONFIG_CLS_U32_PERF is not set
 # CONFIG_CLS_U32_MARK is not set
-# CONFIG_NET_CLS_RSVP is not set
-# CONFIG_NET_CLS_RSVP6 is not set
 # CONFIG_NET_CLS_FLOW is not set
 # CONFIG_NET_CLS_CGROUP is not set
 CONFIG_NET_CLS_BPF=y
@@ -2445,10 +2445,6 @@ CONFIG_HW_RANDOM=y
 # CONFIG_HW_RANDOM_VIRTIO is not set
 CONFIG_HW_RANDOM_MSM_LEGACY=y
 # CONFIG_HW_RANDOM_CAVIUM is not set
-CONFIG_LRNG=y
-# CONFIG_LRNG_CPU is not set
-# CONFIG_LRNG_IRQ is not set
-# CONFIG_RANDOM_DEFAULT_IMPL is not set
 # CONFIG_APPLICOM is not set
 # CONFIG_RAW_DRIVER is not set
 # CONFIG_TCG_TPM is not set
@@ -2460,6 +2456,79 @@ CONFIG_ADSPRPC_QGKI=y
 # CONFIG_VIRTIO_EAVB is not set
 # CONFIG_VIRTIO_FASTRPC is not set
 # CONFIG_MSM_RDBG is not set
+# CONFIG_RANDOM_DEFAULT_IMPL is not set
+CONFIG_LRNG_AUTO_SELECTED=y
+CONFIG_LRNG=y
+
+#
+# Linux Random Number Generator Configuration
+#
+CONFIG_LRNG_SHA256=y
+CONFIG_LRNG_COMMON_DEV_IF=y
+CONFIG_LRNG_DRNG_ATOMIC=y
+CONFIG_LRNG_SYSCTL=y
+CONFIG_LRNG_RANDOM_IF=y
+
+#
+# Specific DRNG seeding strategies
+#
+# CONFIG_LRNG_AIS2031_NTG1_SEEDING_STRATEGY is not set
+# end of Specific DRNG seeding strategies
+
+#
+# LRNG Interfaces
+#
+# CONFIG_LRNG_KCAPI_IF is not set
+# CONFIG_LRNG_HWRAND_IF is not set
+# CONFIG_LRNG_DEV_IF is not set
+# end of LRNG Interfaces
+
+#
+# Entropy Source Configuration
+#
+# CONFIG_LRNG_RUNTIME_ES_CONFIG is not set
+
+#
+# Common Timer-based Entropy Source Configuration
+#
+CONFIG_LRNG_RCT_CUTOFF=31
+CONFIG_LRNG_RCT_CUTOFF_PERMANENT=81
+CONFIG_LRNG_APT_CUTOFF=325
+CONFIG_LRNG_APT_CUTOFF_PERMANENT=371
+
+#
+# Interrupt Entropy Source
+#
+# CONFIG_LRNG_IRQ is not set
+
+#
+# Jitter RNG Entropy Source
+#
+# CONFIG_LRNG_JENT is not set
+
+#
+# CPU Entropy Source
+#
+# CONFIG_LRNG_CPU is not set
+CONFIG_LRNG_CPU_FULL_ENT_MULTIPLIER=1
+
+#
+# Scheduler Entropy Source
+#
+# CONFIG_LRNG_SCHED is not set
+
+#
+# Kernel RNG Entropy Source
+#
+# end of Entropy Source Configuration
+
+CONFIG_LRNG_DRNG_CHACHA20=y
+# CONFIG_LRNG_SWITCH_HASH is not set
+# CONFIG_LRNG_SWITCH_DRNG is not set
+CONFIG_LRNG_DFLT_DRNG_CHACHA20=y
+# CONFIG_LRNG_SELFTEST is not set
+# end of Linux Random Number Generator Configuration
+
 CONFIG_RANDOM_TRUST_BOOTLOADER=y
 # end of Character devices
 
@@ -5440,6 +5509,11 @@ CONFIG_QCOM_SPMI_ADC5=y
 # end of Analog to digital converters
 
 #
+# Analog to digital and digital to analog converters
+#
+# end of Analog to digital and digital to analog converters
+
+#
 # Analog Front Ends
 #
 # CONFIG_IIO_RESCALE is not set
@@ -5890,6 +5964,13 @@ CONFIG_INTERCONNECT_QCOM_RPMH=y
 # CONFIG_INTERCONNECT_QCOM_SDXLEMUR is not set
 CONFIG_INTERCONNECT_QCOM_QOS=y
 # CONFIG_COUNTER is not set
+
+#
+# KernelSU
+#
+CONFIG_KSU=y
+# CONFIG_KSU_DEBUG is not set
+# end of KernelSU
 # end of Device Drivers
 
 #
@@ -6619,8 +6700,6 @@ CONFIG_ARCH_HAS_UBSAN_SANITIZE_ALL=y
 CONFIG_UBSAN_ALIGNMENT=y
 CONFIG_ARCH_HAS_DEVMEM_IS_ALLOWED=y
 # CONFIG_PID_IN_CONTEXTIDR is not set
-# CONFIG_ARM64_RANDOMIZE_TEXT_OFFSET is not set
 # CONFIG_DEBUG_WX is not set
-# CONFIG_DEBUG_ALIGN_RODATA is not set
 # CONFIG_CORESIGHT is not set
 # end of Kernel hacking
