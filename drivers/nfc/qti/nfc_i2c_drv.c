@@ -4,6 +4,12 @@
  */
 
 #include "nfc_common.h"
+#include "../oplus_nfc/oplus_nfc.h"
+
+#ifdef OPLUS_BUG_STABILITY
+#define NCI_GET_FW_CMD_LEN       8
+#define NCI_GET_FW_RSP_LEN       14
+#endif
 
 /**
  * i2c_disable_irq()
